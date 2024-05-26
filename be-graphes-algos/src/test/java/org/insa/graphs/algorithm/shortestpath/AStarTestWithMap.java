@@ -89,6 +89,7 @@ public class AStarTestWithMap {
         }
         System.out.println();
         System.out.println();
+        reader.close();
     }
 
 
@@ -181,6 +182,7 @@ public class AStarTestWithMap {
         }
         System.out.println();
         System.out.println();
+        reader.close();
     }
 
 }
