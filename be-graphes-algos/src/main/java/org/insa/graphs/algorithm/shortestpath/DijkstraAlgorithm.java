@@ -20,7 +20,7 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
     }
 
     @Override
-    protected ShortestPathSolution doRun() {
+    public ShortestPathSolution doRun() {
         boolean fin = false;
         ShortestPathData data = getInputData();
         Graph graph = data.getGraph();
@@ -115,7 +115,7 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
 
         // Destination has no predecessor, the solution is infeasible...
         if (predecessorArcs[data.getDestination().getId()] == null) {
-            solution = new ShortestPathSolution(data, Status.INFEASIBLE);
+            solution = new ShortestPathSolution(data, Status.INFEASIBLE, this.nbSommetsVisites);
         } else {
 
             // The destination has been found, notify the observers.
@@ -134,7 +134,7 @@ public class DijkstraAlgorithm extends ShortestPathAlgorithm {
             Collections.reverse(arcs);
 
             // Create the final solution.
-            solution = new ShortestPathSolution(data, Status.OPTIMAL, new Path(graph, arcs));
+            solution = new ShortestPathSolution(data, Status.OPTIMAL, new Path(graph, arcs),this.nbSommetsVisites);
 
         }
 

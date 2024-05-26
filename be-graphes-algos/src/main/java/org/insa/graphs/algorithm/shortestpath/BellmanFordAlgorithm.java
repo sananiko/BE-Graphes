@@ -17,7 +17,7 @@ public class BellmanFordAlgorithm extends ShortestPathAlgorithm {
     }
 
     @Override
-    protected ShortestPathSolution doRun() {
+    public ShortestPathSolution doRun() {
 
         // Retrieve the graph.
         ShortestPathData data = getInputData();
@@ -72,7 +72,7 @@ public class BellmanFordAlgorithm extends ShortestPathAlgorithm {
 
         // Destination has no predecessor, the solution is infeasible...
         if (predecessorArcs[data.getDestination().getId()] == null) {
-            solution = new ShortestPathSolution(data, Status.INFEASIBLE);
+            solution = new ShortestPathSolution(data, Status.INFEASIBLE, 0);
         }
         else {
 
@@ -91,7 +91,7 @@ public class BellmanFordAlgorithm extends ShortestPathAlgorithm {
             Collections.reverse(arcs);
 
             // Create the final solution.
-            solution = new ShortestPathSolution(data, Status.OPTIMAL, new Path(graph, arcs));
+            solution = new ShortestPathSolution(data, Status.OPTIMAL, new Path(graph, arcs), 0);
         }
 
         return solution;

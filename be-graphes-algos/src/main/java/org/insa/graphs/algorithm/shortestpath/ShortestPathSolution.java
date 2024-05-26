@@ -9,6 +9,7 @@ public class ShortestPathSolution extends AbstractSolution {
 
     // Optimal solution.
     private final Path path;
+    private final int nb_sommets_visites;
 
     /**
      * Create a new infeasible shortest-path solution for the given input and
@@ -17,9 +18,10 @@ public class ShortestPathSolution extends AbstractSolution {
      * @param data Original input data for this solution.
      * @param status Status of the solution (UNKNOWN / INFEASIBLE).
      */
-    public ShortestPathSolution(ShortestPathData data, Status status) {
+    public ShortestPathSolution(ShortestPathData data, Status status, int nb_sommets_visites) {
         super(data, status);
         this.path = null;
+        this.nb_sommets_visites=nb_sommets_visites;
     }
 
     /**
@@ -29,10 +31,12 @@ public class ShortestPathSolution extends AbstractSolution {
      * @param status Status of the solution (FEASIBLE / OPTIMAL).
      * @param path Path corresponding to the solution.
      */
-    public ShortestPathSolution(ShortestPathData data, Status status, Path path) {
+    public ShortestPathSolution(ShortestPathData data, Status status, Path path, int nb_sommets_visites) {
         super(data, status);
         this.path = path;
+        this.nb_sommets_visites=nb_sommets_visites;
     }
+    
 
     @Override
     public ShortestPathData getInputData() {
@@ -70,5 +74,8 @@ public class ShortestPathSolution extends AbstractSolution {
         info += " in " + getSolvingTime().getSeconds() + " seconds.";
         return info;
     }
-
+    public int getNb_sommets_visites() {
+        return nb_sommets_visites;
+    }
+    
 }

@@ -13,11 +13,17 @@ import org.insa.graphs.model.Graph;
 import org.insa.graphs.model.io.BinaryGraphReader;
 import org.insa.graphs.model.io.GraphReader;
 import org.junit.Test;
+import org.junit.runners.Parameterized.Parameters;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
+
+@RunWith(Parameterized.class)
 public class AStarTestWithMap {
     @Test
+    @Parameters
     // typeEvaluation : 0 = temps, 1 = distance
-    public void testScenario(String mapName, int typeEvaluation, int origine, int destination) throws Exception {
+    public static void testScenario(String mapName, int typeEvaluation, int origine, int destination) throws Exception {
         //public void testScenario(String mapName, int typeEvaluation, Node origine, Node destination) throws Exception {
 
         // Create a graph reader.
@@ -94,9 +100,10 @@ public class AStarTestWithMap {
 
 
     @Test
+    @Parameters
     /* Verifie que le temps du chemin le plus rapide est inferieur au temps du chemin le plus court */
     /* Et verifie que la distance du chemin le plus rapide est superieur a la distance du chemin le plus court */
-    public void testScenarioSansOracle(String mapName, int origine, int destination) throws Exception {
+    public static void testScenarioSansOracle(String mapName, int origine, int destination) throws Exception {
 
         double costFastestSolutionInTime = Double.POSITIVE_INFINITY;
         double costFastestSolutionInDistance = Double.POSITIVE_INFINITY;
