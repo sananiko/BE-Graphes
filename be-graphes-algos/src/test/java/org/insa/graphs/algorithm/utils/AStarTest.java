@@ -58,7 +58,7 @@ import org.junit.Test;
 public class AStarTest {
 
     public static void Test_Basique() throws IOException{
-        String mapName1 = "/mnt/commetud/3eme Annee MIC/Graphes-et-Algorithmes/Maps/guadeloupe.mapgr";
+        String mapName1 = "mnt/commetud/3eme Annee MIC/Graphes-et-Algorithmes/Maps/guadeloupe.mapgr";
         BinaryGraphReader reader1 = new BinaryGraphReader(
             new DataInputStream(new BufferedInputStream(new FileInputStream(mapName1))));
     

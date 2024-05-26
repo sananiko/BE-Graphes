@@ -154,13 +154,13 @@ import org.junit.Test;
 public class CompleteTest {
 
     private static long dureeAStar=0;
-    private static String pathtomaps="/mnt/commetud/3eme Annee MIC/Graphes-et-Algorithmes/Maps/insa.mapgr";
+    private static String pathtomaps="mnt/commetud/3eme Annee MIC/Graphes-et-Algorithmes/Maps/insa.mapgr";
     private static long dureeDjikstra=0;
     private static int nb_sommets_visites_djikstra=0;
     private static int nb_sommets_visites_astar=0;
     
 public static void Test_Basique() throws IOException{
-    String mapName1 = "/mnt/commetud/3eme Annee MIC/Graphes-et-Algorithmes/Maps/insa.mapgr";
+    String mapName1 = "mnt/commetud/3eme Annee MIC/Graphes-et-Algorithmes/Maps/insa.mapgr";
     BinaryGraphReader reader1 = new BinaryGraphReader(
         new DataInputStream(new BufferedInputStream(new FileInputStream(mapName1))));
 
@@ -505,7 +505,7 @@ public static void Test_grand_scenario_AStar(String mapname,int origine, int des
         int nb_test=10;
         
         System.out.println("Tests sur de longs trajet, on ne peut pas se servir de Bellman ford comme reference");
-        final String[] mapNames = {"/mnt/commetud/3eme Annee MIC/Graphes-et-Algorithmes/Maps/insa.mapgr", "/mnt/commetud/3eme Annee MIC/Graphes-et-Algorithmes/Maps/insa.mapgr"};
+        final String[] mapNames = {"mnt/commetud/3eme Annee MIC/Graphes-et-Algorithmes/Maps/insa.mapgr", "mnt/commetud/3eme Annee MIC/Graphes-et-Algorithmes/Maps/insa.mapgr"};
 
         for (int i =0;i<nb_cartes;i++){
             final GraphReader reader = new BinaryGraphReader(
@@ -576,7 +576,7 @@ public static void Test_grand_scenario_AStar(String mapname,int origine, int des
         
         //test avec les cartes routieres=>insa et non routieres =>carre et cartes non connexes =>guadeloupe
         
-        final String[] mapNames = {"/mnt/commetud/3eme Annee MIC/Graphes-et-Algorithmes/Maps/insa.mapgr", "/mnt/commetud/3eme Annee MIC/Graphes-et-Algorithmes/Maps/insa.mapgr"};
+        final String[] mapNames = {"mnt/commetud/3eme Annee MIC/Graphes-et-Algorithmes/Maps/insa.mapgr", "mnt/commetud/3eme Annee MIC/Graphes-et-Algorithmes/Maps/insa.mapgr"};
         int nb_test=200;
         int nb_cartes = 2;
 
@@ -684,8 +684,8 @@ public static void Test_grand_scenario_AStar(String mapname,int origine, int des
     System.out.println("nombre de sommets visités par Djikstra sur tous les tests: " + nb_sommets_visites_djikstra);
     System.out.println("nombre de sommets visités par Astar sur tous les tests: " + nb_sommets_visites_astar);
     System.out.println("le pourcentage de sommets visites par djikstra en plus de Astar est "+(nb_sommets_visites_djikstra-nb_sommets_visites_astar)*100/nb_sommets_visites_astar+"%");
-    Test_grand_scenario_AStar("/mnt/commetud/3eme Annee MIC/Graphes-et-Algorithmes/Maps/insa.mapgr",150,480);
-    Test_grand_scenario_Djikstra("/mnt/commetud/3eme Annee MIC/Graphes-et-Algorithmes/Maps/insa.mapgr",700,500);
+    Test_grand_scenario_AStar("mnt/commetud/3eme Annee MIC/Graphes-et-Algorithmes/Maps/insa.mapgr",150,480);
+    Test_grand_scenario_Djikstra("mnt/commetud/3eme Annee MIC/Graphes-et-Algorithmes/Maps/insa.mapgr",700,500);
 
 }
 
